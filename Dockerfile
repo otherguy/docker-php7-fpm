@@ -1,5 +1,5 @@
-# From PHP 7 FPM based on Alpine Linux
-FROM php:7.0-fpm-alpine
+# From PHP 7.1 FPM based on Alpine Linux
+FROM php:7.1-fpm-alpine
 
 # Maintainer
 MAINTAINER Alexander Graf <hi@basecamp.tirol>
@@ -19,7 +19,9 @@ RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpin
 COPY conf/*.ini /usr/local/etc/php/conf.d/
 
 # Disable access log for php-fpm
-RUN sed -e '/access.log/s/^/;/' -i /usr/local/etc/php-fpm.d/docker.conf
+RUN sed -e '/access.log/s/^/;/' 
+        -e "\$alog_errors = yes" 
+        -i /usr/local/etc/php-fpm.d/docker.conf
 
 # Hack to change uid of 'www-data' to 1000
 RUN usermod -u 1000 www-data
