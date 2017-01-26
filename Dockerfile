@@ -7,12 +7,16 @@ MAINTAINER Alexander Graf <hi@basecamp.tirol>
 # Install dependencies
 RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
       shadow curl curl-dev libmcrypt-dev libxml2-dev freetype-dev libpng-dev libjpeg-turbo-dev imagemagick-dev icu-dev openssl-dev \
+      gcc g++ autoconf make \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
+    && yes '' | pecl install apcu-5.1.8 \
     && docker-php-ext-install ctype curl dom gd hash iconv intl json mbstring mcrypt mysqli opcache pdo pdo_mysql phar posix session simplexml sockets tokenizer xml xmlrpc xmlwriter zip \
+    && docker-php-ext-enable apcu \
+    && apk del gcc g++ autoconf make \
     && rm -rf /var/cache/apk/*
 
 # PHP Config
