@@ -23,9 +23,8 @@ RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpin
 COPY conf/*.ini /usr/local/etc/php/conf.d/
 
 # Disable access log for php-fpm
-RUN sed -e '/access.log/s/^/;/' \
-        -e "\$alog_errors = yes" \
-        -i /usr/local/etc/php-fpm.d/docker.conf
+RUN sed -e '/access.log/s/^/;/' -i /usr/local/etc/php-fpm.d/docker.conf
+RUN echo -e "[PHP]\nlog_errors = yes" > /usr/local/etc/php/conf.d/errorlog.ini
 
 # Hack to change uid of 'www-data' to 1000
 RUN usermod -u 1000 www-data
