@@ -1,8 +1,12 @@
 # PHP 7.1 FPM
 
+All-purpose PHP-FPM 7.1 Docker image. Find it on [Dockerhub](https://hub.docker.com/r/winternight/php7-fpm/builds/).
+
+`$ docker pull winternight/php7-fpm:7.1`
+
 ## Description
 
-This is a docker image for an all-purpose PHP-FPM (PHP Version 7.0) container.  It is based on the `7.0-alpine` tag of the [official PHP Docker image](https://hub.docker.com/_/php/). [Patch version](http://semver.org) upgrades are thus done automatically on build (e.g. `7.0.11` to `7.0.12`) but for minor version upgrades (e.g. `7.1.x` to `7.2.x`), a new Dockerfile should be created and tagged appropriately.
+This is a docker image for an all-purpose PHP-FPM (PHP Version 7.1) container.  It is based on the `7.1-alpine` tag of the [official PHP Docker image](https://hub.docker.com/_/php/). [Patch version](http://semver.org) upgrades are thus done automatically on build (e.g. `7.0.11` to `7.0.12`) but for minor version upgrades (e.g. `7.1.x` to `7.2.x`), a new Dockerfile should be created and tagged appropriately.
 
 ## Extensions
 
