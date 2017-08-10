@@ -38,3 +38,10 @@ This is the full list of preinstalled PHP extensions in this image:
 - `xmlrpc`
 - `xmlwriter`
 - `zip`
+
+
+## Building
+
+In order to build this image yourself, simply run the following command:
+
+`$ docker build -t winternight/php7-fpm:7.1 .`
