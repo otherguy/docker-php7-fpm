@@ -7,7 +7,7 @@ MAINTAINER Alexander Graf <hi@basecamp.tirol>
 # Install dependencies
 RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
       shadow curl curl-dev libxml2-dev freetype-dev libpng-dev libjpeg-turbo-dev imagemagick-dev icu-dev openssl-dev \
-      gcc g++ autoconf automake make g++ libtool nasm \
+      gcc g++ autoconf make \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
