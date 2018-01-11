@@ -2,7 +2,7 @@
 FROM php:7.2-fpm-alpine
 
 # Maintainer
-MAINTAINER Alexander Graf <hi@basecamp.tirol>
+MAINTAINER Alexander Graf <alex@basecamp.tirol>
 
 # Install dependencies
 RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.6/main curl curl-dev 
