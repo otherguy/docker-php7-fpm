@@ -1,8 +1,8 @@
 # From PHP 7.2 FPM based on Alpine Linux
-FROM php:7.2-rc-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 # Maintainer
-MAINTAINER Alexander Graf <alex@basecamp.tirol>
+MAINTAINER Alexander Graf <hi@basecamp.tirol>
 
 # Install dependencies
 RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.6/main curl curl-dev 
