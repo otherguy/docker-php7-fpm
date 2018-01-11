@@ -2,12 +2,15 @@
 FROM php:7.2-rc-fpm-alpine
 
 # Maintainer
-MAINTAINER Alexander Graf <hi@basecamp.tirol>
+MAINTAINER Alexander Graf <alex@basecamp.tirol>
 
 # Install dependencies
-RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-      shadow curl curl-dev libxml2-dev freetype-dev libpng-dev libjpeg-turbo-dev imagemagick-dev icu-dev openssl-dev \
-      gcc g++ autoconf make \
+RUN apk --update add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.6/main curl curl-dev 
+RUN apk --update add --no-cache \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+    --repository http://dl-cdn.alpinelinux.org/alpine/v3.6/main \
+      shadow libxml2-dev freetype-dev libpng-dev libjpeg-turbo-dev imagemagick-dev icu-dev openssl-dev gcc g++ autoconf make \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
