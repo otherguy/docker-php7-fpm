@@ -2,14 +2,16 @@
 
 _All-purpose PHP-FPM 7.4 Docker image that comes with the most popular extensions._
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/otherguy/php7-fpm)][dockerhub]
-[![Docker Stars](https://img.shields.io/docker/stars/otherguy/php7-fpm)][dockerhub]
-[![GitHub issues](https://img.shields.io/github/issues/otherguy/docker-php7-fpm)][issues]
-[![MicroBadger Layers](https://img.shields.io/microbadger/layers/otherguy/php7-fpm)][microbadger]
-[![GitHub stars](https://img.shields.io/github/stars/otherguy/docker-php7-fpm?color=violet)][stargazers]
-[![MIT License](https://img.shields.io/github/license/otherguy/docker-php7-fpm?color=orange)][license]
+[![Docker Pulls](https://img.shields.io/docker/pulls/otherguy/php7-fpm?style=flat-square)][dockerhub]
+[![Docker Stars](https://img.shields.io/docker/stars/otherguy/php7-fpm?style=flat-square)][dockerhub]
+[![Travis CI](https://img.shields.io/travis/com/otherguy/docker-php7-fpm?style=flat-square)][travis]
+[![GitHub issues](https://img.shields.io/github/issues/otherguy/docker-php7-fpm?style=flat-square)][issues]
+[![MicroBadger Layers](https://img.shields.io/microbadger/layers/otherguy/php7-fpm?style=flat-square)][microbadger]
+[![GitHub stars](https://img.shields.io/github/stars/otherguy/docker-php7-fpm?color=violet?style=flat-square)][stargazers]
+[![MIT License](https://img.shields.io/github/license/otherguy/docker-php7-fpm?color=orange?style=flat-square)][license]
 
 [dockerhub]: https://hub.docker.com/r/otherguy/php7-fpm/
+[travis]: https://travis-ci.com/otherguy/docker-php7-fpm
 [license]: https://tldrlegal.com/license/mit-license
 [microbadger]: https://microbadger.com/images/otherguy/php7-fpm
 [stargazers]: https://github.com/otherguy/php7-fpm/stargazers
