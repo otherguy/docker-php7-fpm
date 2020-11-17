@@ -127,6 +127,7 @@ This is the full list of extensions available to PHP in this image:
 * `xmlreader`
 * `xmlwriter`
 * `Zend OPcache`
+* `zip`
 * `zlib`
 
 ## 🛠 Building
