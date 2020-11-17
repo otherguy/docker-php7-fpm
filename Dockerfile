@@ -30,6 +30,7 @@ RUN docker-php-ext-configure gd \
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # PHP Config
 COPY conf/*.ini /usr/local/etc/php/conf.d/
@@ -49,4 +50,4 @@ VOLUME /srv
 VOLUME /usr/local/etc/php/conf.d/
 
 # UTF-8 default
-ENV LANG en_US.utf8
+ENV LANG=en_US.utf8
