@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © 2017--2020 [Alexander Graf](mailto:hi@otherguy.io)
+Copyright © 2017–2020 [Alexander Graf](mailto:hi@otherguy.io)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

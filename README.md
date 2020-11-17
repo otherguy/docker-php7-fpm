@@ -1,9 +1,10 @@
 # PHP 7.4 FPM
 
 _All-purpose PHP-FPM 7.4 Docker image that comes with the most popular extensions._
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/otherguy/php7-fpm)][dockerhub]
 [![Docker Stars](https://img.shields.io/docker/stars/otherguy/php7-fpm)][dockerhub]
-[![GitHub issues](https://img.shields.io/github/issues/otherguy/docker-dropbox)][issues]
+[![GitHub issues](https://img.shields.io/github/issues/otherguy/docker-php7-fpm)][issues]
 [![MicroBadger Layers](https://img.shields.io/microbadger/layers/otherguy/php7-fpm)][microbadger]
 [![GitHub stars](https://img.shields.io/github/stars/otherguy/docker-php7-fpm?color=violet)][stargazers]
 [![MIT License](https://img.shields.io/github/license/otherguy/docker-php7-fpm?color=orange)][license]
