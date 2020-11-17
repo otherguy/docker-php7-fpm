@@ -4,6 +4,18 @@ FROM php:7.4-fpm-alpine
 # Maintainer
 LABEL maintainer="Alexander Graf <alex@basecamp.tirol>"
 
+# Build arguments
+ARG VCS_REF=master
+ARG BUILD_DATE=""
+
+# http://label-schema.org/rc1/
+LABEL org.label-schema.schema-version "1.0"
+LABEL org.label-schema.name           "PHP7-FPM"
+LABEL org.label-schema.build-date     "${BUILD_DATE}"
+LABEL org.label-schema.description    "All-purpose PHP-FPM 7.4 Docker image that comes with the most popular extensions"
+LABEL org.label-schema.vcs-url        "https://github.com/otherguy/docker-php7-fpm"
+LABEL org.label-schema.vcs-ref        "${VCS_REF}"
+
 # Install dependencies
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
  && apk add --no-cache curl shadow sqlite curl-dev freetype-dev libpng-dev libjpeg-turbo-dev \

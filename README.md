@@ -22,9 +22,47 @@ or other PHP 7.4+ applications. Just use this lightweight and convenient image.
 
 ## 🌈 Quick Start
 
-* simple example docker file
-* zz-**.ini files for custom config
-* apk add --no-cache --virtual .build-deps $PHPIZE_DEPS && pecl install mongodb && docker-php-ext-enable mongodb
+### Create your Docker image
+
+Base your Docker image on `otherguy/php7-fpm:7.4`, add your project files and you're ready to go!
+
+```Dockerfile
+# Dockerfile
+FROM otherguy/php7-fpm:7.4
+
+COPY --chown=www-data:www-data . /srv
+```
+
+### Customize PHP settings
+
+If you want to change the PHP configuration or overwrite some defaults, simply create your own
+configuration file, have the filename start with a `z` and add it to the image.
+
+```ini
+# zz-custom.ini
+post_max_size       = 100M
+upload_max_filesize = 100M
+```
+
+```Dockerfile
+# Dockerfile
+...
+COPY zz-custom.ini /usr/local/etc/php/conf.d/
+...
+```
+
+### Add PHP extensions
+
+It's simple to add your own extensions to the image!
+
+```Dockerfile
+# Dockerfile
+...
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+ && pecl install mongodb \
+ && docker-php-ext-enable mongodb
+...
+```
 
 ## 📚 Description
 
