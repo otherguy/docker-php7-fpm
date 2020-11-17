@@ -5,16 +5,19 @@ FROM php:7.4-fpm-alpine
 LABEL maintainer="Alexander Graf <alex@basecamp.tirol>"
 
 # Install dependencies
-RUN apk --update add --no-cache \
-    curl curl-dev shadow freetype-dev libpng-dev libjpeg-turbo-dev postgresql-dev \
-    imagemagick-dev icu-dev openssl-dev oniguruma-dev libzip-dev gcc g++ autoconf make
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+ && apk add --no-cache curl shadow sqlite curl-dev freetype-dev libpng-dev libjpeg-turbo-dev \
+        postgresql-dev imagemagick-dev icu-dev openssl-dev oniguruma-dev libzip-dev
 
 RUN docker-php-ext-configure gd \
         --with-freetype=/usr/include/ \
         --with-jpeg=/usr/include/ \
- && docker-php-ext-install gd intl mysqli opcache pdo_mysql pdo_pgsql \
- && apk del --no-cache gcc g++ autoconf make \
+ && docker-php-ext-install -j$(nproc) gd intl mysqli opcache pdo_mysql pdo_pgsql \
+ && apk del --no-cache .build-deps $PHPIZE_DEPS \
  && rm -rf /var/cache/apk/*
+
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # PHP Config
 COPY conf/*.ini /usr/local/etc/php/conf.d/
@@ -29,7 +32,8 @@ RUN usermod -u 1000 www-data
 # Change working directory
 WORKDIR /srv
 
-# PHP config directory is a volume
+# PHP config directory and /srv are volumes
+VOLUME /srv
 VOLUME /usr/local/etc/php/conf.d/
 
 # UTF-8 default

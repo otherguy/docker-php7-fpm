@@ -15,35 +15,40 @@ _All-purpose PHP-FPM 7.4 Docker image that comes with the most popular extension
 [stargazers]: https://github.com/otherguy/php7-fpm/stargazers
 [issues]: https://github.com/otherguy/docker-php7-fpm/issues
 
-
-Dont worry about your favorite currency conversion service suddenly shutting down or switching plans on you. Switc
+Don't worry about building complex Docker images for your [Laravel](https://laravel.com), [Lumen](https://lumen.laravel.com)
+or other PHP 7.4+ applications. Just use this lightweight and convenient image.
 
     $ docker pull otherguy/php7-fpm:7.4
 
 ## 🌈 Quick Start
 
+* simple example docker file
+* zz-**.ini files for custom config
+* apk add --no-cache --virtual .build-deps $PHPIZE_DEPS && pecl install mongodb && docker-php-ext-enable mongodb
 
 ## 📚 Description
 
-This is a docker image for an all-purpose PHP-FPM (PHP Version 7.4) container.  It is based on the `7.4-alpine`
+This is a docker image for an all-purpose PHP-FPM (PHP Version 7.4) container.  It is based on the `7.4-fpm-alpine`
 tag of the [official PHP Docker image](https://hub.docker.com/_/php/). [Patch version](http://semver.org) upgrades
-are therefore done automatically on build (e.g. `7.0.11` to `7.0.12`) but for minor version upgrades
-(e.g. `7.2.x` to `7.3.x`), a new Dockerfile should be created and tagged appropriately.
+are therefore done automatically on build (e.g. `7.4.11` to `7.4.12`) but for minor version upgrades
+(e.g. `7.3.x` to `7.4.x`), a new `Dockerfile` should be created and tagged appropriately.
 
 ## 🆕 New and Removed Features
 
-There are some new features and deprecated parts in PHP 7.2 that made changes to the Dockerfile necessary:
+There are some new features and deprecated modules that made changes to the `Dockerfile` necessary:
 
-* `mcrypt` has been [deprecated in 7.1 and removed in 7.2](http://php.net/manual/en/migration71.deprecated.php) in favor of OpenSSL
+* `mcrypt` has been [deprecated in 7.1 and removed in 7.2](http://php.net/manual/en/migration71.deprecated.php) in
+  favor of OpenSSL
+* PHP 7.4 includes many of the extensions that were previously installed manually, so only `gd`, `intl`, `opcache` and
+  PDO are installed through this image
 
 ## 🧮 Extensions
 
 The installed extensions are enough for [Laravel 8 projects](https://laravel.com/docs/8.x/installation) as long as the project
-is using either PostgreSQL or MySQL. If you need other database drivers/extensions, please fork this image and submit
-a [pull requests](https://github.com/otherguy/docker-php7-fpm/pulls)!
+is using either PostgreSQL, MySQL or SQLite. If you need other database drivers/extensions, please fork this image and submit
+a [pull requests](https://github.com/otherguy/docker-php7-fpm/pulls), or simply install it in your own image.
 
-
-This is the full list of preinstalled PHP extensions in this image:
+This is the full list of extensions available to PHP in this image:
 
 * `ctype`
 * `curl`
