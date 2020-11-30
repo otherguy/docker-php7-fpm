@@ -24,7 +24,7 @@ RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
 RUN docker-php-ext-configure gd \
         --with-freetype=/usr/include/ \
         --with-jpeg=/usr/include/ \
- && docker-php-ext-install -j$(nproc) gd intl mysqli opcache pdo_mysql pdo_pgsql zip \
+ && docker-php-ext-install -j$(nproc) gd exif intl mysqli opcache pdo_mysql pdo_pgsql zip \
  && apk del --no-cache .build-deps $PHPIZE_DEPS \
  && rm -rf /var/cache/apk/*
 
