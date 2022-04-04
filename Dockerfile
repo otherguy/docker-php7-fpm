@@ -1,5 +1,5 @@
 # From PHP 7.4 FPM based on Alpine Linux
-FROM php:7.4-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 # Maintainer
 LABEL maintainer="Alexander Graf <alex@basecamp.tirol>"
